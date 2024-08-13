@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  asmetal2java:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: isaacmaffeis/asmetal2java:latest
+    volumes:
+      - ./input:/app/asmetal2java_codegen/input
+      - ./output:/app/asmetal2java_codegen/output

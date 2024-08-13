@@ -1,0 +1,4 @@
+*.asm
+*.java
+
+!StandardLibrary.asm
