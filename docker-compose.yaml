@@ -8,4 +8,15 @@ services:
     image: isaacmaffeis/asmetal2java:latest
     volumes:
       - ./input:/app/asmetal2java_codegen/input
-      - ./output:/app/asmetal2java_codegen/output
+      - ./evosuite/input:/app/asmetal2java_codegen/output
+
+  evoservice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: isaacmaffeis/evoservice:latest
+    volumes:
+      - ./evosuite/evosuite-files:/app/evosuite-files
+      - ./evosuite/evosuite-report:/app/evosuite-report
+      - ./evosuite/evosuite-tests:/app/evosuite-test
+      - ./evosuite/input:/app/input
