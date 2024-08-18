@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   asmetal2java:
@@ -8,7 +7,7 @@ services:
     image: isaacmaffeis/asmetal2java:latest
     volumes:
       - ./input:/app/asmetal2java_codegen/input
-      - ./evosuite/input:/app/asmetal2java_codegen/output
+      - ./evoservice/input:/app/asmetal2java_codegen/output
 
   evoservice:
     build:
@@ -16,7 +15,9 @@ services:
       dockerfile: Dockerfile
     image: isaacmaffeis/evoservice:latest
     volumes:
-      - ./evosuite/evosuite-files:/app/evosuite-files
-      - ./evosuite/evosuite-report:/app/evosuite-report
-      - ./evosuite/evosuite-tests:/app/evosuite-test
-      - ./evosuite/input:/app/input
+      - ./evoservice/evosuite-files:/app/evosuite-files
+      - ./evoservice/evosuite-report:/app/evosuite-report
+      - ./evoservice/evosuite-tests:/app/evosuite-tests
+      - ./evoservice/input:/app/input
+      - ./evoservice/target:/app/target
+      - ./evoservice/scripts/gen_evosuite.sh:/app/scripts/gen_evosuite.sh
