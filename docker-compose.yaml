@@ -21,3 +21,4 @@ services:
       - ./evoservice/input:/app/input
       - ./evoservice/target:/app/target
       - ./evoservice/scripts/gen_evosuite.sh:/app/scripts/gen_evosuite.sh
+      - ./evoservice/src:/app/src
