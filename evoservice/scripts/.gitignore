@@ -1,3 +1,2 @@
 *.py
 *.sh
-!gen_evosuite.sh
