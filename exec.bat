@@ -2,10 +2,10 @@ echo "#EvoAvalla"
 echo "## "
 
 echo "Updating the images..."
-docker compose pull
+docker compose pull -q
 
 echo "Starting the containers..."
-docker compose up
+docker compose up -d --build
 
 echo "Cleaning folders..."
 del /Q .\evoservice\target\*
@@ -24,3 +24,6 @@ docker compose run --rm evoservice python3 scripts/gen_evosuite_sh.py
 docker compose run --rm evoservice ./scripts/gen_evosuite.sh
 
 docker compose run --rm evoservice ./scripts/tests.sh
+
+echo "stop and remove containers"
+docker compose down
