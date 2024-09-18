@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     image: isaacmaffeis/asmetal2java:latest
     volumes:
-      - ./input:/app/asmetal2java_codegen/input
+      - ./asmetal2java/input:/app/asmetal2java_codegen/input
       - ./evoservice/input:/app/asmetal2java_codegen/output
 
   evoservice:
@@ -22,3 +22,14 @@ services:
       - ./evoservice/target:/app/target
       - ./evoservice/scripts/gen_evosuite.sh:/app/scripts/gen_evosuite.sh
       - ./evoservice/src:/app/src
+      - ./evoservice/m2:/root/.m2
+      - ./javaToAvalla/input:/app/output
+
+  javatoavalla:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: isaacmaffeis/javatoavalla:latest
+    volumes:
+      - ./javaToAvalla/input:/app/input
+      - ./javaToAvalla/output:/app/output
