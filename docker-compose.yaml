@@ -6,8 +6,8 @@ services:
       dockerfile: Dockerfile
     image: isaacmaffeis/asmetal2java:latest
     volumes:
-      - ./asmetal2java/input:/app/asmetal2java_codegen/input
-      - ./evoservice/input:/app/asmetal2java_codegen/output
+      - ./services/asmetal2java/input:/app/asmetal2java_codegen/input
+      - ./services/evoservice/input:/app/asmetal2java_codegen/output
 
   evoservice:
     build:
@@ -15,15 +15,15 @@ services:
       dockerfile: Dockerfile
     image: isaacmaffeis/evoservice:latest
     volumes:
-      - ./evoservice/evosuite-files:/app/evosuite-files
-      - ./evoservice/evosuite-report:/app/evosuite-report
-      - ./evoservice/evosuite-tests:/app/evosuite-tests
-      - ./evoservice/input:/app/input
-      - ./evoservice/target:/app/target
-      - ./evoservice/scripts/gen_evosuite.sh:/app/scripts/gen_evosuite.sh
-      - ./evoservice/src:/app/src
-      - ./evoservice/m2:/root/.m2
-      - ./javaToAvalla/input:/app/output
+      - ./services/evoservice/evosuite-files:/app/evosuite-files
+      - ./services/evoservice/evosuite-report:/app/evosuite-report
+      - ./services/evoservice/evosuite-tests:/app/evosuite-tests
+      - ./services/evoservice/input:/app/input
+      - ./services/evoservice/target:/app/target
+      - ./services/evoservice/scripts/gen_evosuite.sh:/app/scripts/gen_evosuite.sh
+      - ./services/evoservice/src:/app/src
+      - ./services/evoservice/m2:/root/.m2
+      - ./services/javaToAvalla/input:/app/output
 
   javatoavalla:
     build:
@@ -31,5 +31,5 @@ services:
       dockerfile: Dockerfile
     image: isaacmaffeis/javatoavalla:latest
     volumes:
-      - ./javaToAvalla/input:/app/input
-      - ./javaToAvalla/output:/app/output
+      - ./services/javaToAvalla/input:/app/input
+      - ./output:/app/output
