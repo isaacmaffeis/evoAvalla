@@ -1,4 +1,1 @@
 *.asm
-*.java
-
-!StandardLibrary.asm
