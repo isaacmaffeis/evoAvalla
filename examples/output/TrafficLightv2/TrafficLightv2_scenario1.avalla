@@ -1,0 +1,90 @@
+scenario TrafficLightv2_scenario1
+
+load TrafficLightv2.asm
+
+check count = 0;
+check status = RED;
+set pedestrian := false;
+
+step
+
+check status = RED;
+check count = 1;
+set pedestrian := false;
+
+step
+
+check status = RED;
+check count = 2;
+set pedestrian := false;
+
+step
+
+check status = RED;
+check count = 3;
+set pedestrian := false;
+
+step
+
+check status = RED;
+check count = 4;
+set pedestrian := false;
+
+step
+
+check status = RED;
+check count = 5;
+set pedestrian := false;
+
+step
+
+check status = RED;
+check count = 6;
+set pedestrian := false;
+
+step
+
+check count = 0;
+check status = GREEN;
+set pedestrian := false;
+
+step
+
+check status = GREEN;
+check count = 1;
+set pedestrian := false;
+
+step
+
+check status = GREEN;
+check count = 2;
+set pedestrian := false;
+
+step
+
+check status = GREEN;
+check count = 3;
+set pedestrian := false;
+
+step
+
+check status = GREEN;
+check count = 4;
+set pedestrian := false;
+
+step
+
+check status = GREEN;
+check count = 5;
+set pedestrian := false;
+
+step
+
+check status = GREEN;
+check count = 6;
+set pedestrian := false;
+
+step
+
+check count = 0;
+check status = YELLOW;

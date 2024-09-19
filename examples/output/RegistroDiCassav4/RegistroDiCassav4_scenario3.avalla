@@ -1,0 +1,19 @@
+scenario RegistroDiCassav4_scenario3
+
+load RegistroDiCassav4.asm
+
+check totale = 0;
+check outMess = "";
+check statoCassa = ATTENDI_ORDINAZIONI;
+set servizioSelezionato := NEWORDINE;
+set pizzaInserita := margherita;
+set sceltaDiAggiuntaPizza := NO;
+set sceltaDelTipoPizza := STANDARD;
+set insertQuantita := 4;
+set insertPrezzo := 4;
+
+step
+
+check outMess = "prezzo totale aggiornato";
+check totale = 0;
+check statoCassa = ATTENDI_ORDINAZIONI;
