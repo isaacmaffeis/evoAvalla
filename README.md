@@ -5,16 +5,16 @@ Abstract State Machine (ASM).
 
 To achieve this, EvoAvalla is divided into three microservices:
 
-1. **asmetal2java**:  
+1. [**asmetal2java**](https://github.com/isaacmaffeis/asmetal2java):  
    This microservice converts the input `.asm` file into a corresponding Java application.
 
-2. **evoservice**:  
+2. [**evoservice**](https://github.com/isaacmaffeis/evoservice):  
    This microservice uses [EvoSuite](https://github.com/EvoSuite/evosuite), a test generation tool that
    automatically generates JUnit test suites for Java classes.
    EvoSuite therfore generates a test suite based on the Java application that was produced by the `asmetal2java` service.
    Since we are testing an ASM, the tests we are interested in are operating scenarios, which we will call scenarios.
 
-4. **javaToAvalla**:  
+3. [**javaToAvalla**](https://github.com/isaacmaffeis/javaToAvalla):  
    Once the scenarios are generated, this microservice converts the Java-based scenarios into the Avalla language.
    The Avalla format is a specialized language used for defining test scenarios for ASMs,
    and this conversion ensures the generated test cases can be executed in an Avalla-based testing environment.
