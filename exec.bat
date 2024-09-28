@@ -33,15 +33,7 @@ docker compose run --rm asmetal2java -input "./input/%input_file_no_ext%.asm"
 move ".\services\evoservice\input\StepFunctionArgs.txt" ".\services\javaToAvalla\input"
 
 echo "Running evoservice..."
-docker compose run --rm evoservice python3 ./scripts/retrieve_input.py
-
-docker compose run --rm evoservice ./scripts/mvn_setup.sh
-
-docker compose run --rm evoservice python3 scripts/gen_evosuite_sh.py -criterion LINE:BRANCH -Dminimize=true -Dassertion_strategy=all
-
-docker compose run --rm evoservice ./scripts/gen_evosuite.sh
-
-docker compose run --rm evoservice ./scripts/tests.sh
+docker compose run --rm evoservice ./scripts/main.sh
 
 echo "Running javatoavalla"
 docker compose run --rm javatoavalla -input "./input/%input_file_no_ext%_ASM_ESTest.java" -clean true
